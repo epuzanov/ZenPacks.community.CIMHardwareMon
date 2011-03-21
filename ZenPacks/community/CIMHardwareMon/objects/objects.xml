@@ -1,0 +1,565 @@
+<?xml version="1.0"?>
+<objects>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'Dell', 'rrdTemplates', 'CIMFan') -->
+<object id='/zport/dmd/Devices/CIM/Dell/rrdTemplates/CIMFan' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMFan
+</property>
+<tomanycont id='datasources'>
+<object id='CIMFan' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+<tomanycont id='aliases'>
+<object id='Status' module='Products.ZenModel.RRDDataPointAlias' class='RRDDataPointAlias'>
+<property type="string" id="formula" mode="w" >
+"OK":2,"Error":6,"Degraded":3,"Unknown":0,"Pred Fail":5,"Starting":8,"Stopping":9,"Service":11,"Stressed":4,"NonRecover":7,"No Contact":12,"Lost Comm":13,"Stopped":10
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMFan_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMFan
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'Dell', 'rrdTemplates', 'CIMPhysicalMemory') -->
+<object id='/zport/dmd/Devices/CIM/Dell/rrdTemplates/CIMPhysicalMemory' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMPhysicalMemory
+</property>
+<tomanycont id='datasources'>
+<object id='CIMPhysicalMemory' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+<tomanycont id='aliases'>
+<object id='Status' module='Products.ZenModel.RRDDataPointAlias' class='RRDDataPointAlias'>
+<property type="string" id="formula" mode="w" >
+"OK":2,"Error":6,"Degraded":3,"Unknown":0,"Pred Fail":5,"Starting":8,"Stopping":9,"Service":11,"Stressed":4,"NonRecover":7,"No Contact":12,"Lost Comm":13,"Stopped":10
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMPhysicalMemory_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMPhysicalMemory
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'rrdTemplates', 'CIMFan') -->
+<object id='/zport/dmd/Devices/CIM/rrdTemplates/CIMFan' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMFan
+</property>
+<tomanycont id='datasources'>
+<object id='CIMFan' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMFan_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMFan
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'rrdTemplates', 'CIMPhysicalMemory') -->
+<object id='/zport/dmd/Devices/CIM/rrdTemplates/CIMPhysicalMemory' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMPhysicalMemory
+</property>
+<tomanycont id='datasources'>
+<object id='CIMPhysicalMemory' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMPhysicalMemory_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMPhysicalMemory
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'rrdTemplates', 'CIMPowerSupply') -->
+<object id='/zport/dmd/Devices/CIM/rrdTemplates/CIMPowerSupply' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMPowerSupply
+</property>
+<tomanycont id='datasources'>
+<object id='CIMPowerSupply' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMPowerSupply_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMPowerSupply
+</property>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'rrdTemplates', 'CIMTachometer') -->
+<object id='/zport/dmd/Devices/CIM/rrdTemplates/CIMTachometer' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMTachometer
+</property>
+<tomanycont id='datasources'>
+<object id='CIMTachometer' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='CurrentReading' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMTachometer_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMTachometer
+</property>
+</object>
+</tomanycont>
+<tomanycont id='graphDefs'>
+<object id='rpm' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+rpm
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+0
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<tomanycont id='graphPoints'>
+<object id='CurrentReading' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+${graphPoint/id}
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="dpName" mode="w" >
+CIMTachometer_CurrentReading
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Devices', 'CIM', 'rrdTemplates', 'CIMTemperatureSensor') -->
+<object id='/zport/dmd/Devices/CIM/rrdTemplates/CIMTemperatureSensor' module='Products.ZenModel.RRDTemplate' class='RRDTemplate'>
+<property type="string" id="targetPythonClass" mode="w" >
+Products.ZenModel.CIMTemperatureSensor
+</property>
+<tomanycont id='datasources'>
+<object id='CIMTemperatureSensor' module='ZenPacks.community.SQLDataSource.datasources.SQLDataSource' class='SQLDataSource'>
+<property select_variable="sourcetypes" type="selection" id="sourcetype" mode="w" >
+SQL
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="severity" mode="w" >
+3
+</property>
+<property type="int" id="cycletime" mode="w" >
+300
+</property>
+<property type="string" id="transport" mode="w" >
+Auto
+</property>
+<property type="string" id="cs" mode="w" >
+root/cimv2
+</property>
+<property type="string" id="sql" mode="w" >
+${here/snmpindex}
+</property>
+<tomanycont id='datapoints'>
+<object id='CurrentReading' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+<object id='OperationalStatus' module='Products.ZenModel.RRDDataPoint' class='RRDDataPoint'>
+<property select_variable="rrdtypes" type="selection" id="rrdtype" mode="w" >
+GAUGE
+</property>
+<property type="boolean" id="isrow" mode="w" >
+True
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+<tomanycont id='thresholds'>
+<object id='OperationalStatus' module='ZenPacks.community.deviceAdvDetail.thresholds.StatusThreshold' class='StatusThreshold'>
+<property type="lines" id="dsnames" mode="w" >
+['CIMTemperatureSensor_OperationalStatus']
+</property>
+<property type="boolean" id="enabled" mode="w" >
+True
+</property>
+<property type="int" id="escalateCount" mode="w" >
+0
+</property>
+<property type="string" id="eventClass" mode="w" >
+/Status/CIMTemperatureSensor
+</property>
+</object>
+</tomanycont>
+<tomanycont id='graphDefs'>
+<object id='Temperature' module='Products.ZenModel.GraphDefinition' class='GraphDefinition'>
+<property type="int" id="height" mode="w" >
+100
+</property>
+<property type="int" id="width" mode="w" >
+500
+</property>
+<property type="string" id="units" mode="w" >
+C
+</property>
+<property type="boolean" id="log" mode="w" >
+False
+</property>
+<property type="boolean" id="base" mode="w" >
+False
+</property>
+<property type="int" id="miny" mode="w" >
+-1
+</property>
+<property type="int" id="maxy" mode="w" >
+-1
+</property>
+<property type="boolean" id="hasSummary" mode="w" >
+True
+</property>
+<tomanycont id='graphPoints'>
+<object id='CurrentReading' module='Products.ZenModel.DataPointGraphPoint' class='DataPointGraphPoint'>
+<property select_variable="lineTypes" type="selection" id="lineType" mode="w" >
+LINE
+</property>
+<property type="long" id="lineWidth" mode="w" >
+1
+</property>
+<property type="boolean" id="stacked" mode="w" >
+False
+</property>
+<property type="string" id="format" mode="w" >
+%5.2lf%s
+</property>
+<property type="string" id="legend" mode="w" >
+Temperature
+</property>
+<property type="long" id="limit" mode="w" >
+-1
+</property>
+<property type="string" id="rpn" mode="w" >
+0,*,${here/temperatureCelsius},+
+</property>
+<property type="string" id="dpName" mode="w" >
+CIMTemperatureSensor_CurrentReading
+</property>
+<property type="string" id="cFunc" mode="w" >
+AVERAGE
+</property>
+</object>
+</tomanycont>
+</object>
+</tomanycont>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMFan') -->
+<object id='/zport/dmd/Events/Status/CIMFan' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMPhysicalMemory') -->
+<object id='/zport/dmd/Events/Status/CIMPhysicalMemory' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMPowerSupply') -->
+<object id='/zport/dmd/Events/Status/CIMPowerSupply' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMProcessor') -->
+<object id='/zport/dmd/Events/Status/CIMProcessor' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMTachometer') -->
+<object id='/zport/dmd/Events/Status/CIMTachometer' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+<!-- ('', 'zport', 'dmd', 'Events', 'Status', 'CIMTemperatureSensor') -->
+<object id='/zport/dmd/Events/Status/CIMTemperatureSensor' module='Products.ZenEvents.EventClass' class='EventClass'>
+</object>
+</objects>
