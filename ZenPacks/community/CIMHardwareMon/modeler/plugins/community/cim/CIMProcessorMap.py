@@ -12,9 +12,9 @@ __doc__="""CIMProcessorMap
 
 CIMProcessorMap maps the CIM_Processor class to cpus objects
 
-$Id: CIMProcessorMap.py,v 1.0 2011/03/21 21:28:10 egor Exp $"""
+$Id: CIMProcessorMap.py,v 1.1 2011/03/22 22:29:30 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
 from Products.DataCollector.plugins.DataMaps import MultiArgs
@@ -193,7 +193,7 @@ class CIMProcessorMap(SQLPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         if 'root/HPQ' in cs:
             return {
                 "CIM_Processor":
@@ -282,7 +282,8 @@ class CIMProcessorMap(SQLPlugin):
         rm = self.relMap()
         cache = self.processCacheMemory(results.get("CIM_CacheMemory", []))
         socket = 1
-        for instance in results.get("CIM_Processor", []):
+        instances = results.get("CIM_Processor", [])
+        for instance in instances:
             om = self.objectMap(instance)
             if om._status == 0: continue
             try:

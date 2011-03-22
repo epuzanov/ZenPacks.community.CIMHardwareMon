@@ -12,9 +12,9 @@ __doc__="""CIMStatus
 
 CIMStatus is an abstraction for OperationalStatus Property.
 
-$Id: CIMStatus.py,v 1.0 2010/03/12 14:45:24 egor Exp $"""
+$Id: CIMStatus.py,v 1.1 2011/03/22 22:25:30 egor Exp $"""
 
-__version__ = "$Revision: 1.0 $"[11:-2]
+__version__ = "$Revision: 1.1 $"[11:-2]
 
 from Globals import InitializeClass
 from ZenPacks.community.deviceAdvDetail.HWStatus import *
@@ -42,6 +42,11 @@ class CIMComponent(HWStatus):
                 17: (DOT_GREEN, SEV_CLEAN, 'Completed'),
                 18: (DOT_YELLOW, SEV_WARNING, 'Power Mode'),
                 }
+
+    def cimInstance(self):
+        iName = self.snmpindex.split('.', 1)
+        if len(iName) == 1: return iName[0]
+        return '%s WHERE %s' % (iName[0], iName[1].replace(',', ' AND '))
 
     def getRRDTemplates(self):
         """

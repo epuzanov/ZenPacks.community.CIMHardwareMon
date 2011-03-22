@@ -10,11 +10,11 @@
 
 __doc__="""CIMTachometerMap
 
-CIMTachometerMap maps CIM_Tachometer class to HardDisk class.
+CIMTachometerMap maps CIM_Tachometer class to CIMTachometer class.
 
-$Id: CIMTachometerMap.py,v 1.0 2011/03/21 21:57:35 egor Exp $"""
+$Id: CIMTachometerMap.py,v 1.1 2011/03/22 22:30:16 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
@@ -38,6 +38,7 @@ class CIMTachometerMap(SQLPlugin):
                 3: 'CPU Fan',
                 }
 
+
     def queries(self, device):
         cs = getattr(device,
                     'zCIMHWConnectionString',
@@ -48,13 +49,13 @@ class CIMTachometerMap(SQLPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         return {
             "CIM_Tachometer":
                 (
-                "SELECT Description,ElementName,FanType,SensorType,UnitModifier,LowerThresholdCritical,LowerThresholdFatal,LowerThresholdNonCritical,__path FROM CIM_NumericSensor",
+                "SELECT * FROM CIM_NumericSensor",
                 None,
-                cd,
+                cs,
                 {
                     'Description':'description',
                     'ElementName':'id',

@@ -12,9 +12,9 @@ __doc__="""CIMStorageVolumeMap
 
 CIMStorageVolumeMap maps CIM_StorageVolume class to LogicalDisk class.
 
-$Id: CIMStorageVolumeMap.py,v 1.0 2011/03/21 21:51:14 egor Exp $"""
+$Id: CIMStorageVolumeMap.py,v 1.1 2011/03/22 22:29:57 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
 
@@ -51,7 +51,6 @@ class CIMStorageVolumeMap(SQLPlugin):
                 {
                     '__path':'snmpindex',
                     'BlockSize':'_blocksize',
-		    'DataRedundancy':'_dr',
                     'DeviceID':'id',
                     'ElementName':'description',
                     'NumberOfBlocks':'_blocks',

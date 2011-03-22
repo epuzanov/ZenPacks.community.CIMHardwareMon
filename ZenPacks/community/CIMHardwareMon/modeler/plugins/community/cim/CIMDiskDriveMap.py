@@ -12,9 +12,9 @@ __doc__="""CIMDiskDriveMap
 
 CIMDiskDriveMap maps CIM_DiskDrive class to HardDisk class.
 
-$Id: CIMDiskDriveMap.py,v 1.0 2011/03/21 20:10:13 egor Exp $"""
+$Id: CIMDiskDriveMap.py,v 1.1 2011/03/22 22:26:21 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin

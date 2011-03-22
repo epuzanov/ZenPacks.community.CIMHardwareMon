@@ -10,11 +10,11 @@
 
 __doc__="""CIMPhysicalMemoryMap
 
-CIMPhysicalMemoryMap maps the cpqSiMemModuleTable table to cpqSiMemModule objects
+CIMPhysicalMemoryMap maps the CIM_PhysicalMemory to CIMPhysicalMemory objects
 
-$Id: CIMPhysicalMemoryMap.py,v 1.0 2011/03/21 21:16:05 egor Exp $"""
+$Id: CIMPhysicalMemoryMap.py,v 1.1 2011/03/22 22:28:16 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 from Products.ZenUtils.Utils import convToUnits
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
@@ -98,11 +98,11 @@ class CIMPhysicalMemoryMap(SQLPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         return {
             "CIM_PhysicalMemory":
                 (
-                "SELECT Capacity,DeviceLocator,FormFactor,Manufacturer,MemoryType,Name,SerialNumber,Speed,__path FROM CIM_PhysicalMemory",
+                "SELECT * FROM CIM_PhysicalMemory",
                 None,
                 cs,
                 {

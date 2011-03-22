@@ -13,9 +13,9 @@ __doc__="""CIMTemperatureSensorMap
 CIMTemperatureSensorMap maps CIM_TemperatureSensor class to TemperatureSensor
 class.
 
-$Id: CIMTemperatureSensorMap.py,v 1.0 2011/03/21 22:03:36 egor Exp $"""
+$Id: CIMTemperatureSensorMap.py,v 1.1 2011/03/22 22:30:58 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
@@ -71,11 +71,11 @@ class CIMTemperatureSensorMap(SQLPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         return {
             "CIM_TemperatureSensor":
                 (
-                "SELECT BaseUnits,ElementName,NumericSensorType,SensorType,UnitModifier,UpperThresholdCritical,UpperThresholdFatal,UpperThresholdNonCritical,__path FROM CIM_NumericSensor",
+                "SELECT * FROM CIM_NumericSensor",
                 None,
                 cs,
                 {
@@ -101,7 +101,7 @@ class CIMTemperatureSensorMap(SQLPlugin):
             om = self.objectMap(instance)
             om.id = self.prepId(om.id)
             om.type = getattr(om, 'type', 0) or 0
-            om.type = self.NumericSensorTypes.get(int(om.type), 'Unknown')
+            om.type = self.numericSensorTypes.get(int(om.type), 'Unknown')
             if om.snmpindex.lower().startswith('root/ibmsd'): om.baseUnits = 2
             rm.append(om)
         return rm

@@ -10,11 +10,11 @@
 
 __doc__="""CIMPowerSupplyMap
 
-CIMPowerSupplyMap maps CIM_PowerSupply class to HardDisk class.
+CIMPowerSupplyMap maps CIM_PowerSupply CIM class to CIMPowerSupply class.
 
-$Id: CIMPowerSupplyMap.py,v 1.0 2011/03/21 21:25:14 egor Exp $"""
+$Id: CIMPowerSupplyMap.py,v 1.1 2011/03/21 22:29:05 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 
 from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
@@ -74,11 +74,11 @@ class CIMPowerSupplyMap(SQLPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         return {
             "CIM_PowerSupply":
                 (
-                "SELECT DeviceID,PowerSupplyType,TotalOutputPower,__path FROM CIM_PowerSupply",
+                "SELECT * FROM CIM_PowerSupply",
                 None,
                 cs,
                 {

@@ -12,14 +12,14 @@ __doc__="""CIMFanMap
 
 CIMFanMap maps CIM_Fan class to HardDisk class.
 
-$Id: CIMFanMap.py,v 1.0 2011/03/21 21:15:32 egor Exp $"""
+$Id: CIMFanMap.py,v 1.1 2011/03/22 22:26:45 egor Exp $"""
 
-__version__ = '$Revision: 1.0 $'[11:-2]
+__version__ = '$Revision: 1.1 $'[11:-2]
 
 
-from ZenPacks.community.CIMDataSource.CIMPlugin import CIMPlugin
+from ZenPacks.community.SQLDataSource.SQLPlugin import SQLPlugin
 
-class CIMFanMap(CIMPlugin):
+class CIMFanMap(SQLPlugin):
     """Map CIM_Fan class to Fan class"""
 
     maptype = "CIMFanMap"
@@ -31,18 +31,6 @@ class CIMFanMap(CIMPlugin):
                                                     'zCIMHWConnectionString',
                                                     )
 
-
-    def queries(self, device):
-        cs = getattr(device,
-                    'zCIMHWConnectionString',
-                    "'pywbemdb',scheme='https',port=5989,namespace='root/cimv2'")
-        options = [opt.split('=')[0].strip().lower() for opt in cs.split(',')]
-        if 'host' not in options:
-            cs = cs + ",host='%s'"%device.manageIp
-        if 'user' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
-        if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
 
     fanTypes = {
         0: "Unknown",
@@ -103,11 +91,11 @@ class CIMFanMap(CIMPlugin):
         if 'user' not in options:
             cs = cs + ",user='%s'"%getattr(device, 'zWinUser', '')
         if 'password' not in options:
-            cs = cs + ",user='%s'"%getattr(device, 'zWinPassword', '')
+            cs = cs + ",password='%s'"%getattr(device, 'zWinPassword', '')
         return {
             "CIM_Fan":
                 (
-                "SELECT CoolingDeviceType,DeviceID,FanType,__path FROM CIM_Fan",
+                "SELECT * FROM CIM_Fan",
                 None,
                 cs,
                 {

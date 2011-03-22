@@ -38,7 +38,6 @@ class CIMTemperatureSensor(TemperatureSensor, CIMComponent):
                  {'id':'upperThresholdNonCritical', 'type':'int', 'mode':'w'},
                 )
 
-
     def temperatureCelsius(self, default=None):
         """
         Return the current temperature in degrees celsius
