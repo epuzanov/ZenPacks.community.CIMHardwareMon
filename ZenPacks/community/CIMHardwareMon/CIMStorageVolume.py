@@ -8,19 +8,19 @@
 #
 ################################################################################
 
-__doc__="""CIMLogicalDisk
+__doc__="""CIMStorageVolume
 
-CIMLogicalDisk is an abstraction of a LogicalDisk.
+CIMStorageVolume is an abstraction of a StorageVolume.
 
-$Id: CIMLogicalDisk.py,v 1.0 2011/03/21 22:12:35 egor Exp $"""
+$Id: CIMStorageVolume.py,v 1.0 2011/03/21 22:12:35 egor Exp $"""
 
 __version__ = "$Revision: 1.0 $"[11:-2]
 
 from ZenPacks.community.deviceAdvDetail.LogicalDisk import LogicalDisk
 from CIMComponent import *
 
-class CIMLogicalDisk(LogicalDisk, CIMComponent):
-    """LogicalDisk object"""
+class CIMStorageVolume(LogicalDisk, CIMComponent):
+    """StorageVolume object"""
 
     def getRRDTemplates(self):
         """
@@ -33,4 +33,4 @@ class CIMLogicalDisk(LogicalDisk, CIMComponent):
             if templ: templates.append(templ)
         return templates
 
-InitializeClass(CIMLogicalDisk)
+InitializeClass(CIMStorageVolume)

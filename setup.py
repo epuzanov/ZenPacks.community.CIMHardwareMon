@@ -3,12 +3,12 @@
 # or saved.  Do not modify them directly here.
 # NB: PACKAGES is deprecated
 NAME = "ZenPacks.community.CIMHardwareMon"
-VERSION = "0.82"
+VERSION = "0.83"
 AUTHOR = "Egor Puzanov"
 LICENSE = ""
 NAMESPACE_PACKAGES = ['ZenPacks', 'ZenPacks.community']
 PACKAGES = ['ZenPacks', 'ZenPacks.community', 'ZenPacks.community.CIMHardwareMon']
-INSTALL_REQUIRES = ['ZenPacks.community.deviceAdvDetail>=2.7', 'ZenPacks.community.SQLDataSource>=1.80']
+INSTALL_REQUIRES = ['ZenPacks.community.SQLDataSource>=1.80', 'ZenPacks.community.deviceAdvDetail>=2.7']
 COMPAT_ZENOSS_VERS = ">=2.5"
 PREV_ZENPACK_NAME = ""
 # STOP_REPLACEMENTS

@@ -22,7 +22,7 @@ class CIMStorageVolumeMap(SQLPlugin):
     """Map CIM_StorageVolume class to LogicalDisk"""
 
     maptype = "CIMStorageVolumeMap"
-    modname = "ZenPacks.community.CIMHardwareMon.CIMLogicalDisk"
+    modname = "ZenPacks.community.CIMHardwareMon.CIMStorageVolume"
     relname = "logicaldisks"
     compname = "hw"
     deviceProperties = SQLPlugin.deviceProperties + ('zWinUser',
